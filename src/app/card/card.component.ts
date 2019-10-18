@@ -16,13 +16,14 @@ export class CardComponent {
   public repos: any;
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['nameRepos'] && this.nameRepos != null) {
-      console.log(this.nameRepos);
       this.showSpinner = true;
-      this.api.getRepos(this.nameRepos)
-        .subscribe((result) => {
-          this.repos = result.items;
-          this.showSpinner = false;
-        });
+      setTimeout(() => {
+        this.api.getRepos(this.nameRepos)
+          .subscribe((result) => {
+            this.repos = result.items;
+            this.showSpinner = false;
+          });
+      }, 1000); 
     }
   }
 

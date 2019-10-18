@@ -8,8 +8,9 @@ export class SearchComponent{
 
   @Output() outputRepos = new EventEmitter<string>();
   public query: string;
-  public search(query: string){    
-    this.outputRepos.emit(query);  
+
+  public search(){    
+     this.outputRepos.emit(this.query);  
   };
 }
  
